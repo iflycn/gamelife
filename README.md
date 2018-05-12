@@ -7,11 +7,15 @@
 3. **人口过多**：任何活细胞如果活邻居大于3个，则死掉。
 4. **繁殖**：任何死细胞如果活邻居正好是3个，则活过来。
 
+## 游戏截图
+![](https://github.com/iflycn/gamelife/blob/master/ScreenGif.gif)
+
 ## 开始游戏
-[https://iflycn.github.io/gamelife/dist](https://iflycn.github.io/gamelife/dist)
+[https://iflycn.github.io/gamelife/](https://iflycn.github.io/gamelife/)
 
 ## TODO
 - [ ] 优化代码，提高游戏效率
+- [x] 兼容移动端
 - [x] 完善 README
 
 ## 相关链接
