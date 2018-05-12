@@ -3,13 +3,14 @@
   console.table(["Author: iflycn", "E-mail: iflycn@gmail.com", "GitHub: https://github.com/iflycn/gamelife"]);
   // 初始化生命
   var dom = $("#gamelife");
-  var lifeSize = 40;
+  var lifeSize = ~~getVar("s") > 0 ? ~~getVar("s") : 40;
+  ~~getVar("s") > 0 && $("div.control:eq(0)").remove();
   for (var i = 0; i < lifeSize; i++) {
     for (var j = 0; j < lifeSize; j++) {
       dom.append("<span></span>");
     }
   }
-  var liftWidth = 10;
+  var liftWidth = ~~getVar("w") > 0 ? ~~getVar("w") : 10;
   dom.css({
     "width": isMobile() ? "90%" : lifeSize * (liftWidth + 1) + 1,
     "height": isMobile() ? "90%" : lifeSize * (liftWidth + 1) + 1
@@ -54,12 +55,18 @@
 //函数：判断是否移动设备（无参数）
 function isMobile() {
   var v = !1,
-    Agent = ["iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire"],
+    Agent = ["iphone", "ipod", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire"],
     thisSys = navigator.userAgent.toLowerCase();
   $.each(Agent, function (i, n) {
     thisSys.indexOf(n) != -1 && (v = !0)
   });
   return v;
+}
+
+//函数：获取URL参数（变量）
+function getVar(s) {
+  var r = new RegExp("(^|)" + s + "=([^\&]*)(\&|$)", "gi").exec(String(location.href));
+  return !!r ? r[2] : "";
 }
 
 //函数：返回生命数组（DOM）

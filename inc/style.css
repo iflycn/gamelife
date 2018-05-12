@@ -124,6 +124,10 @@ div.control button {
   background: #360;
 }
 
+div.control button:active {
+  background: #295c00;
+}
+
 #gamelife {
   margin: 0 auto;
   width: 0;
@@ -172,7 +176,7 @@ div.control button {
     margin: 1px 0;
     width: 49%;
   }
-  div.scroll{
+  div.scroll {
     margin-top: 20px;
     widows: 100%;
     height: 0;
