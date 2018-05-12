@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="author" content="iflycn（iflycn@gmail.com）">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="inc/style.css">
+  <title>生命游戏 - Game of Life</title>
+</head>
+
+<body>
+  <div>
+    <h1>生命游戏 - Game of Life</h1>
+    <div id="gamelife"></div>
+    <div class="scroll">
+      <div class="log">
+        <h3>信息统计</h3>
+        <p>生命数量：<span class="info">0</span> | 进化速度：<span class="info">0</span>S | 进化层次：<span class="info">0</span></p>
+      </div>
+      <div class="control">
+        <h3>造物主</h3>
+        <button class="no_life">清空全部生命</button>
+        <button class="give_life">随机生成生命</button>
+        <button data-life="779,780,781" class="give_life">闪光灯</button>
+        <button data-life="620,660,700,776,777,778,782,783,784,860,900,940" class="give_life">交通灯</button>
+        <!-- <button data-life="741,779,780,781,820" class="give_life">R</button> -->
+        <button data-life="699,700,739,782,821,822" class="give_life">灯塔</button>
+        <button data-life="658,659,660,698,699,700,738,739,740,781,782,783,821,822,823,861,862,863" class="give_life">大灯塔</button>
+        <button data-life="498,499,539,540,541,580" class="give_life">世纪</button>
+        <button data-life="741,780,781,819,820,859" class="give_life">楼梯</button>
+        <button data-life="535,536,542,543,576,577,581,582,613,616,618,620,622,625,653,654,655,657,658,660,661,663,664,665,694,696,698,700,702,704,735,736,737,741,742,743,815,816,817,821,822,823,854,856,858,860,862,864,893,894,895,897,898,900,901,903,904,905,933,936,938,940,942,945,976,977,981,982,1015,1016,1022,1023" class="give_life">脉冲星</button>
+        <button data-life="721,722,760,761,762,763,800,801,803,804,842,843" class="give_life">轻量级飞船</button>
+        <button data-life="2,40,42,81,82" class="give_life">滑翔者</button>
+        <button data-life="25,26,64,66,89,91,103,110,111,114,115,129,132,143,146,149,152,154,155,160,161,172,173,183,190,191,200,201,210,214,215,224,226,245,246,252,253,265,266,284,289,292,301,329,331,342,343,381,382" class="give_life">高斯帕滑翔枪</button>
+      </div>
+      <div class="control">
+        <h3>生命进化</h3>
+        <button data-time="1" class="life_evolution">开始一次进化</button>
+        <button data-time="10" class="life_evolution">开始十次进化</button>
+        <button data-time="100" class="life_evolution">开始一百次进化</button>
+        <button data-time="1000" class="life_evolution">开始一千次进化</button>
+      </div>
+      <div class="control">
+        <h3>地图控制</h3>
+        <button data-map="up" class="map_control">上移一行</button>
+        <button data-map="down" class="map_control">下移一行</button>
+        <button data-map="left" class="map_control">左移一行</button>
+        <button data-map="right" class="map_control">右移一行</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="inc/jquery.js"></script>
+  <script src="inc/jquery_sys.js"></script>
+</body>
+
+</html>

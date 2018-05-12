@@ -1,0 +1,181 @@
+﻿/*
+ * CSS made by bulusi.com
+ * 2012-11-28
+ */
+
+/* 公用样式v0.3 */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  text-align: left;
+  font-family: "Microsoft YaHei", SimSun, sans-serif;
+  *font-family: Arial, SimSun, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: auto;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  color: #000;
+  background: #fff;
+}
+
+::selection {
+  background: #360;
+  color: #fff;
+}
+
+::-webkit-input-placeholder {
+  color: #666;
+}
+
+:-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #666;
+}
+
+::-ms-input-placeholder {
+  color: #666;
+}
+
+p {
+  line-height: 120%;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: justify;
+}
+
+button {
+  cursor: pointer;
+  *overflow: visible;
+}
+
+/* 私有样式 */
+
+h1 {
+  line-height: 100px;
+  font-size: 28px;
+  color: #360;
+  text-align: center;
+}
+
+div.log {
+  margin: 40px auto;
+  padding: 10px 20px;
+  width: 858px;
+  background: #eee;
+}
+
+div.log h3 {
+  line-height: 38px;
+  font-size: 18px;
+}
+
+div.log p {
+  line-height: 22px;
+  font-size: 14px;
+}
+
+div.control {
+  position: relative;
+  margin: 40px auto;
+  padding: 20px 20px 10px 20px;
+  width: 858px;
+  border: 1px solid #eee;
+}
+
+div.control h3 {
+  position: absolute;
+  top: -16px;
+  left: 20px;
+  padding: 4px 8px;
+  font-size: 16px;
+  color: #360;
+  background: #fff;
+}
+
+div.control button {
+  margin: 2px 0;
+  width: 140px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  background: #360;
+}
+
+#gamelife {
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+#gamelife span {
+  display: block;
+  float: left;
+  margin: 1px 0 0 1px;
+  line-height: 100%;
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  /* border-radius: 50%; */
+  background: #222;
+  overflow: hidden;
+  cursor: pointer;
+  /* transition: .1s; */
+}
+
+#gamelife span.living {
+  background: #360;
+}
+
+/* 响应式布局样式 */
+
+@media screen and (max-width:767px) {
+  h1 {
+    line-height: 60px;
+    font-size: 2em;
+  }
+  div.log {
+    margin: 0 auto 20px auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  div.control {
+    padding: 20px 10px 10px 10px;
+    width: 90%;
+    box-sizing: border-box;
+  }
+  div.control button {
+    margin: 1px 0;
+    width: 49%;
+  }
+  div.scroll{
+    margin-top: 20px;
+    widows: 100%;
+    height: 0;
+    overflow: scroll;
+  }
+}
