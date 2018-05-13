@@ -17,7 +17,8 @@
 - 例如：[https://iflycn.github.io/gamelife/?s=40&w=20](https://iflycn.github.io/gamelife/?s=40&w=20)
 
 ## TODO
-- [ ] 优化代码，提高游戏效率
+- [ ] 解决世界大小变化时，预定义生命无法正确安放
+- [x] 优化代码，提高游戏效率
 - [x] 兼容移动端
 - [x] 完善 README
 
