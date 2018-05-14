@@ -32,7 +32,7 @@ $(function () {
   });
   // 生成生命
   $("button.give_life").click(function () {
-    giveLife($(this).attr("data-life") && $(this).attr("data-life").split("|"));
+    giveLife($(this).attr("data-life") && mapRenormalization($(this).attr("data-life").split("|")));
   });
   // 开始进化
   $("button.life_evolution").click(function () {
@@ -183,4 +183,44 @@ function mapControl(map) {
     }
   });
   giveLife(arr);
+}
+
+//函数：地图重正（生命数组）
+function mapRenormalization(arr) {
+  if (lifeSize != 40) {
+    console.log(arr)
+    var arrRow = [];
+    var arrCol = [];
+    $.each(arr, function (i, n) {
+      arrRow.push(n.split(",")[0]);
+      arrCol.push(n.split(",")[1]);
+    });
+    arrRow.max = Math.max.apply(null, arrRow);
+    arrRow.min = Math.min.apply(null, arrRow);
+    arrCol.max = Math.max.apply(null, arrCol);
+    arrCol.min = Math.min.apply(null, arrCol);
+    if (arrRow.max - arrRow.min >= lifeSize || arrCol.max - arrCol.min >= lifeSize) {
+      console.error("The map is too small to hold life.");
+      return [];
+    } else {
+      var re = ~~(lifeSize / 2) - 20;
+      console.log(re)
+      if (re < 0 && ((arrRow.min != 0 && arrRow.min + re < 0) || (arrCol.min != 0 && arrCol.min + re < 0))) {
+        console.error("The map is too small to renormalization life.");
+        return [];
+      }
+    }
+    arr = [];
+    $.each(arrRow, function (i) {
+      if (arrRow.min > 0) {
+        arrRow[i] = ~~arrRow[i] + re;
+      }
+      if (arrCol.min > 0) {
+        arrCol[i] = ~~arrCol[i] + re;
+      }
+      arr.push(arrRow[i] + "," + arrCol[i]);
+    });
+  }
+  console.log(arr)
+  return arr;
 }
