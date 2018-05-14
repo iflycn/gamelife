@@ -11,8 +11,8 @@ var speed = lifeSize * lifeSize / 20;
 $(function () {
   // 初始化样式
   $("head").append("<style></style>");
-  $("head style").append("#gamelife{width:" + (isMobile() ? "90%" : lifeSize * (lifeWidth + 1) + 1) + "px;height:" + (isMobile() ? "90%" : lifeSize * (lifeWidth + 1) + 1) + "px}");
-  $("head style").append("#gamelife span{width:" + (isMobile() ? dom.width() / lifeSize - 1 : lifeWidth) + "px;height:" + (isMobile() ? dom.width() / lifeSize - 1 : lifeWidth) + "px}");
+  $("head style").append("#gamelife{width:" + (isMobile() ? $(window).width() * 0.9 : lifeSize * (lifeWidth + 1) + 1) + "px;height:" + (isMobile() ? $(window).width() * 0.9 : lifeSize * (lifeWidth + 1) + 1) + "px}");
+  $("head style").append("#gamelife span{width:" + (isMobile() ? $(window).width() * 0.9 / lifeSize - 1 : lifeWidth) + "px;height:" + (isMobile() ? $(window).width() * 0.9 / lifeSize - 1 : lifeWidth) + "px}");
   isMobile() && $("div.scroll").height($(window).height() - dom.height() - 80);
   $("span.info:eq(1)").text(speed / 1e3);
   // 初始化生命
