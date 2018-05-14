@@ -17,6 +17,7 @@
 - 例如：[https://iflycn.github.io/gamelife/?s=40&w=20](https://iflycn.github.io/gamelife/?s=40&w=20)
 
 ## TODO
+- [x] (5) 改用 Canvas 绘图
 - [x] (4) 解决世界大小变化时，预定义生命无法正确安放
 - [x] (3) 优化代码，提高游戏效率
 - [x] (2) 兼容移动端
