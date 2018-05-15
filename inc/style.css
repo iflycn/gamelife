@@ -96,6 +96,28 @@ div.log p {
   font-size: 14px;
 }
 
+div.log p.custom {
+  margin-top: 10px;
+  display: none;
+}
+
+div.log input,
+div.log button {
+  padding: 0 8px;
+  line-height: 30px;
+  border: 1px solid #360;
+}
+
+div.log input {
+  width: 50%;
+  background: #fff;
+}
+
+div.log button {
+  color: #fff;
+  background: #360;
+}
+
 div.control {
   position: relative;
   margin: 40px auto;
@@ -124,6 +146,7 @@ div.control button {
   background: #360;
 }
 
+div.log button,
 div.control button:active {
   background: #295c00;
 }

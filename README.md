@@ -13,6 +13,7 @@
 ## 开始游戏
 [https://iflycn.github.io/gamelife/](https://iflycn.github.io/gamelife/)
 ### 游戏参数
+- 双击信息统计可以自定义生命
 - 可以接受参数来自定义细胞大小和数量
 - 例如：[https://iflycn.github.io/gamelife/?s=40&w=20](https://iflycn.github.io/gamelife/?s=40&w=20)
 

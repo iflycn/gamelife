@@ -21,9 +21,8 @@ $(function () {
   // 初始化生命
   gl.newLife();
   // 获取生命数组
-  isMobile() || $("div.log").dblclick(function () {
-    $(this).find("p:eq(1)").remove();
-    $(this).append("<p>" + gl.arrLife().join("|") + "</p>")
+  isMobile() || $("div.log h3").dblclick(function () {
+    $("p.custom").show().find("input").val(gl.arrLife().join("|"));
   });
   // 切换生命状态
   dom.click(function (e) {
@@ -36,6 +35,10 @@ $(function () {
   // 生成生命
   $("button.give_life").click(function () {
     gl.giveLife($(this).attr("data-life") && gl.mapRenormalization($(this).attr("data-life").split("|")));
+  });
+  // 自定义生命
+  $("button.custom_life").click(function () {
+    gl.giveLife(gl.mapRenormalization(!!$(this).prev("input").val() ? $(this).prev("input").val().split("|") : $(this).attr("data-life").split("|"), !0));
   });
   // 开始进化
   $("button.life_evolution").click(function () {
@@ -57,7 +60,7 @@ function gameLife(dom) {
   this.data = [];
   this.size = ~~getVar("s") > 0 ? ~~getVar("s") : 40;
   this.width = ~~getVar("w") > 0 ? ~~getVar("w") : 10;
-  this.color = "#336600";
+  this.color = !!getVar("rgb") ? getVar("rgb") : "#336600";
   this.speed = this.size * this.size / 128 < 50 ? 50 : this.size * this.size / 128;
 
   //函数：初始化生命数组（无参数）
@@ -124,7 +127,7 @@ function gameLife(dom) {
           $("span.info:eq(2)").text("0");
           n = n.split(",");
         }
-        that.data[n[0]][n[1]] = !0;
+        that.data[~~n[0]][~~n[1]] = !0;
       });
     } else {
       $("span.info:eq(2)").text("0");
@@ -183,10 +186,10 @@ function gameLife(dom) {
     that.giveLife(arr);
   }
 
-  //函数：地图重正（生命数组）
-  gameLife.prototype.mapRenormalization = function (arr) {
+  //函数：地图重正（生命数组，是否强制重正）
+  gameLife.prototype.mapRenormalization = function (arr, b) {
     var that = this;
-    if (that.size != 40) {
+    if (!!b || that.size != 40) {
       var arrRow = [];
       var arrCol = [];
       $.each(arr, function (i, n) {
@@ -197,14 +200,19 @@ function gameLife(dom) {
       arrRow.min = Math.min.apply(null, arrRow);
       arrCol.max = Math.max.apply(null, arrCol);
       arrCol.min = Math.min.apply(null, arrCol);
-      if (arrRow.max - arrRow.min >= that.size || arrCol.max - arrCol.min >= that.size) {
-        console.error("The map is too small to hold life.");
+      if (arrRow.max !== arrRow.max) {
+        console.error("Unexplained DNA.");
         return [];
       } else {
-        var re = ~~(that.size / 2) - 20;
-        if (re < 0 && ((arrRow.min != 0 && arrRow.min + re < 0) || (arrCol.min != 0 && arrCol.min + re < 0))) {
-          console.error("The map is too small to renormalization life.");
+        if (arrRow.max - arrRow.min >= that.size || arrCol.max - arrCol.min >= that.size) {
+          console.error("The map is too small to hold life.");
           return [];
+        } else {
+          var re = ~~(that.size / 2) - 20;
+          if (re < 0 && ((arrRow.min != 0 && arrRow.min + re < 0) || (arrCol.min != 0 && arrCol.min + re < 0))) {
+            console.error("The map is too small to renormalization life.");
+            return [];
+          }
         }
       }
       var arr = [];
